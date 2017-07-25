@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import { Text } from 'react-native';
+import { connect } from 'react-redux';
 import { CardSection } from './common';
+
+//imports all create-action functions from action directory
+import * as actions from '../actions';
 
 class ListItem extends Component {
   render() {
@@ -23,4 +27,6 @@ const styles = {
   }
 };
 
-export default ListItem;
+//First argument is explicitly for mapStateToProps()
+//automatically dispatches actions to redux store...also passes all actions into component as props
+export default connect(null, actions)(ListItem);
